@@ -40,8 +40,23 @@ class Tree {
       this.print(node.left, `${prefix}${isLeft ? "      " : "│     "}`, true);
   }
 
-  insert(value) {
-    // insert value into bst
+  isLeaf(node) {
+    if (node.left === null && node.right === null) return true;
+    return false;
+  }
+
+  // insert value into bst
+  insert(value, node = this.root) {
+    if (!this.isLeaf(node)) {
+      node.left === null
+        ? this.insert(value, node.right)
+        : this.insert(value, node.left);
+      return;
+    }
+
+    value < node.value
+      ? (node.left = new Node(value))
+      : (node.right = new Node(value));
   }
 
   delete(value) {
@@ -111,3 +126,6 @@ class Tree {
 //
 
 const bst = new Tree([1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324]);
+bst.insert(50);
+bst.insert(5);
+bst.print();
