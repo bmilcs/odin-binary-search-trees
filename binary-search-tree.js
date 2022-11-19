@@ -39,6 +39,71 @@ class Tree {
     if (node.left !== null)
       this.print(node.left, `${prefix}${isLeft ? "      " : "│     "}`, true);
   }
+
+  insert(value) {
+    // insert value into bst
+  }
+
+  delete(value) {
+    // delete value from bst
+  }
+
+  find(value) {
+    // finds node from a given value & returns node
+  }
+
+  levelOrder(aFunction) {
+    // accepts another function as parameter
+    // - traverse tree in breadth-first (level-order)
+    // - provide each node as argument to provided function
+    // - create iterative and recursive versions
+    // return array of values if NO function is provided
+    // * use array acting as a QUEUE to keep track of child nodes
+    //   that you have yet to traverse & add new ones to list
+  }
+
+  inorder(aFunction) {
+    // accepts function as parameter
+    // - traverse tree in depth-first order
+    // - yield each node to provided function given as argument
+    // return array of values if no function given
+  }
+
+  preorder(aFunction) {
+    // accepts function as parameter
+    // - traverse tree in depth-first order
+    // - yield each node to provided function given as argument
+    // return array of values if no function given
+  }
+
+  postorder(aFunction) {
+    // accepts function as parameter
+    // - traverse tree in depth-first order
+    // - yield each node to provided function given as argument
+    // return array of values if no function given
+  }
+
+  height(node) {
+    // accept node as parameter
+    // return its height
+    //        # of edges in the longest path FROM a node TO a leaf node
+  }
+
+  depth(node) {
+    // accept node as parameter
+    // return its depth
+    //            # of edges in path FROM a node TO root node
+  }
+
+  isBalanced() {
+    // check if tree is balanced
+    //  - balanced = difference between heights of left & right subtree of every node is NOT more than 1
+  }
+
+  reBalance() {
+    // rebalance an unbalanced tree
+    // - traversal method to provide a new array to the buildTree function
+  }
 }
 
 //
