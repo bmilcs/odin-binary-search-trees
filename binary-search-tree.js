@@ -220,6 +220,7 @@ bst.print();
 console.log(`height: ${bst.height()}`);
 console.log(`depth: ${bst.depth(bst.root.right.left)}`);
 console.log(bst.isBalanced());
+
 bst.insert(100);
 bst.insert(102);
 bst.insert(101);
