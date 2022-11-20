@@ -30,23 +30,6 @@ class Tree {
     return false;
   }
 
-  // insert value into bst
-  // insert(value, node = this.root) {
-  //   // if node is NOT a leaf
-  //   if (!this.isLeaf(node)) {
-  //     // and node.left doesn't exist
-  //     node.left === null
-  //       ? this.insert(value, node.right) // right must contain a value, so traverse to it.
-  //       : this.insert(value, node.left); // else traverse to the left node
-  //     return;
-  //   }
-
-  //   // arrived a leaf: safe to add new node
-  //   value < node.value
-  //     ? (node.left = new Node(value))
-  //     : (node.right = new Node(value));
-  // }
-
   insert(value, root = this.root) {
     if (root === null) return new Node(value);
     if (value > root.data) root.right = this.insert(value, root.right);
@@ -177,14 +160,31 @@ class Tree {
     return "error: unable to locate node!";
   }
 
+  // balanced = difference between heights of left & right subtree of every node is NOT more than 1
   isBalanced() {
-    // check if tree is balanced
-    //  - balanced = difference between heights of left & right subtree of every node is NOT more than 1
+    // traverse bst and push depth of all leaf nodes to an array
+    const allLeafDepths = [];
+    this.levelOrder((node) => {
+      if (this.isLeaf(node)) allLeafDepths.push(this.depth(node));
+    });
+
+    // sort depths & compare highest/lowest values
+    const allDepthsSorted = allLeafDepths.sort((a, b) => (a > b ? +1 : -1));
+    return Math.abs(
+      allDepthsSorted[0] - allDepthsSorted[allDepthsSorted.length - 1]
+    ) > 1
+      ? false
+      : true;
   }
 
   reBalance() {
-    // rebalance an unbalanced tree
-    // - traversal method to provide a new array to the buildTree function
+    // traverse array & fill array w/ all node data
+    const arrayOfNodeValues = [];
+    this.preorder((node) => {
+      arrayOfNodeValues.push(node.data);
+    });
+    const sortedDedupedNodeValues = this.sortDedupedArray(arrayOfNodeValues);
+    this.root = this.buildTree(sortedDedupedNodeValues);
   }
 
   print(node = this.root, prefix = " ", isLeft = true) {
@@ -219,3 +219,13 @@ bst.print();
 
 console.log(`height: ${bst.height()}`);
 console.log(`depth: ${bst.depth(bst.root.right.left)}`);
+console.log(bst.isBalanced());
+bst.insert(100);
+bst.insert(102);
+bst.insert(101);
+bst.insert(104);
+bst.print();
+console.log(bst.isBalanced());
+
+bst.reBalance();
+bst.print();
