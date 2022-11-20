@@ -161,10 +161,20 @@ class Tree {
     return Math.max(leftHeight, rightHeight) + 1;
   }
 
-  depth(node) {
+  depth(targetNode) {
     // accept node as parameter
     // return its depth
     //            # of edges in path FROM a node TO root node
+    let totalDepth = 0;
+    let current = this.root;
+
+    while (current.data) {
+      ++totalDepth;
+      if (targetNode.data > current.data) current = current.right;
+      else if (targetNode.data < current.data) current = current.left;
+      else return totalDepth;
+    }
+    return "error: unable to locate node!";
   }
 
   isBalanced() {
@@ -208,3 +218,4 @@ bst.delete(4);
 bst.print();
 
 console.log(`height: ${bst.height()}`);
+console.log(`depth: ${bst.depth(bst.root.right.left)}`);
