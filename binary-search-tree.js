@@ -196,37 +196,6 @@ class Tree {
   }
 }
 
-//
-// tests
-//
-
-const bst = new Tree([1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324]);
-
-// traversal
-console.log(`level order:\t${bst.levelOrder()}`);
-console.log(`dfs inorder:\t${bst.inorder()}`);
-console.log(`dfs preorder:\t${bst.preorder()}`);
-console.log(`dfs postorder:\t${bst.postorder()}`);
-
-console.log(`min value: ${bst.minValue()}`);
-
-bst.insert(5);
-bst.insert(51);
-bst.print();
-
-bst.delete(4);
-bst.print();
-
-console.log(`height: ${bst.height()}`);
-console.log(`depth: ${bst.depth(bst.root.right.left)}`);
-console.log(bst.isBalanced());
-
-bst.insert(100);
-bst.insert(102);
-bst.insert(101);
-bst.insert(104);
-bst.print();
-console.log(bst.isBalanced());
-
-bst.reBalance();
-bst.print();
+module.exports = {
+  Tree: Tree,
+};
