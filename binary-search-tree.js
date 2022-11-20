@@ -37,10 +37,9 @@ class Tree {
     return root;
   }
 
-  // delete value from bst
   delete(value, root = this.root) {
     if (root === null) return root;
-    // recurse through bst, comparing values
+
     if (value < root.data) root.left = this.delete(value, root.left);
     else if (value > root.data) root.right = this.delete(value, root.right);
     else {
@@ -54,7 +53,6 @@ class Tree {
     return root;
   }
 
-  // return smallest value in bst
   minValue(root = this.root) {
     let minVal = root.data;
     while (root !== null) {
@@ -64,7 +62,6 @@ class Tree {
     return minVal;
   }
 
-  // finds node from a given value & returns node
   find(value) {
     let foundNode = null;
     this.levelOrder((node) => {
@@ -145,9 +142,6 @@ class Tree {
   }
 
   depth(targetNode) {
-    // accept node as parameter
-    // return its depth
-    //            # of edges in path FROM a node TO root node
     let totalDepth = 0;
     let current = this.root;
 
@@ -160,7 +154,7 @@ class Tree {
     return "error: unable to locate node!";
   }
 
-  // balanced = difference between heights of left & right subtree of every node is NOT more than 1
+  // balanced: difference between heights of left & right subtree of every node is NOT more than 1
   isBalanced() {
     // traverse bst and push depth of all leaf nodes to an array
     const allLeafDepths = [];
@@ -183,6 +177,7 @@ class Tree {
     this.preorder((node) => {
       arrayOfNodeValues.push(node.data);
     });
+
     const sortedDedupedNodeValues = this.sortDedupedArray(arrayOfNodeValues);
     this.root = this.buildTree(sortedDedupedNodeValues);
   }
