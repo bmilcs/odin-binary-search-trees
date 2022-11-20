@@ -21,6 +21,7 @@ bst.insert(103);
 bst.insert(104);
 bst.insert(105);
 printTest("balanced", bst.isBalanced());
+printTest("height total", bst.height());
 
 printTitle("rebalancing tree");
 bst.reBalance();
