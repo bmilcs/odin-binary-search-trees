@@ -25,15 +25,23 @@ There are two primary means of traversing a BST:
 
 - Visits all nodes on each "level" of the tree before moving on
 - Utilizes a `queue`: first in, first out (FIFO)
+- Time Complexity: `O(n)`
+- Space Complexity: `O(n)`
 
 **Depth-first**:
 
 - Visits all nodes on a single side of the tree (left or right) before moving on
+  - Traverse as _deep_ as possible in one direction
+  - Then go across/leterally
 - Utilizes a `stack`: last in, first out
+  - Add to the top of the stack
+  - Remove from the top of the stack
 - Broken down into 3 types:
   - Preorder: Root, Left, Right
   - Inorder: Left, Root, Right
   - Postorder: Left, Right, Root
+- Time Complexity: `O(n)`
+- Space Complexity: `O(n)`
 
 ## Screenshots
 
