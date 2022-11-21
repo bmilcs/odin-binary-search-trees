@@ -76,10 +76,7 @@ class Tree {
     const arrayOfValues = [];
     while (queue.length > 0) {
       const root = queue.shift();
-      // return array of values if NO function is provided
-      if (!callback) arrayOfValues.push(root.data);
-      // provide each node as argument to provided function
-      else callback(root);
+      !callback ? arrayOfValues.push(root.data) : callback(root);
       if (root.left !== null) queue.push(root.left);
       if (root.right !== null) queue.push(root.right);
     }
@@ -92,7 +89,6 @@ class Tree {
     let inorderArray = [];
 
     while (stack.length) {
-      callback(current);
       const current = stack.pop();
       if (current.right) stack.push(current.right);
       !callback ? inorderArray.push(current.data) : callback(current);
