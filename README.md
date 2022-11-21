@@ -35,7 +35,9 @@ There are two primary means of traversing a BST:
 
 ## Screenshots
 
-In progress
+![screenshot #1](./img/screenshot-1.png)
+
+![screenshot #2](./img/screenshot-2.png)
 
 ## Links
 
@@ -46,4 +48,7 @@ In progress
 ```sh
 # clone repo
 git clone https://github.com/bmilcs/odin-binary-search-trees
+
+# run script (*requires node)
+node tests.js
 ```
