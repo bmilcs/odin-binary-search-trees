@@ -15,7 +15,9 @@ A Binary Search Tree is a data structure that organizes data in a tree-like way.
 - `left` points to a node who's value is less than `data`
 - `right` points to a node who's value is greater than its `data`
 
-Binary Search Trees begin with a single `root` node and all values added to the tree after the root node are inserted below it. If a node is less than the root node, it is inserted in the `left` property of the root node. If a node is greater, it's inserted in the root node's `right` property.
+Binary Search Trees begin with a single `root` node and all values added to the tree after the root node are inserted below it. If a new value is less than the root node, it is inserted in the `left` property of the root node. If a value is greater than the root node, it's inserted in the root node's `right` property. Nodes that do not contain a `left` or `right` values are called `leaf` nodes.
+
+This assignment called for a _Balanced_ Binary Search Tree, which is created from a deduplicated & sorted array of values. The middle value of the array becomes the `root` node, leaving an equal number of elements for the left and right sides. By doing this, the resulting Binary Tree will have a maximum depth difference of 1 between all leaf nodes.
 
 There are two primary means of traversing a BST:
 
