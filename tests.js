@@ -10,6 +10,8 @@ const bst = new Tree([10, 1, 3, 9, 4, 7, 14, 2, 4, 5, 13, 12]);
 
 printTest("balanced", bst.isBalanced());
 
+bst.print();
+
 printTitle("print tree in level, pre, post & in order");
 printAllTraversalMethods();
 
