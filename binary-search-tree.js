@@ -92,10 +92,10 @@ class Tree {
     let inorderArray = [];
 
     while (stack.length) {
+      callback(current);
       const current = stack.pop();
       if (current.right) stack.push(current.right);
-      if (!callback) inorderArray.push(current.data);
-      else callback(current);
+      !callback ? inorderArray.push(current.data) : callback(current);
       if (current.left) stack.push(current.left);
     }
 
@@ -109,10 +109,9 @@ class Tree {
 
     while (stack.length) {
       const current = stack.pop();
-      if (!callback) inorderArray.push(current.data);
-      else callback(current);
-      if (current.left) stack.push(current.left);
+      !callback ? inorderArray.push(current.data) : callback(current);
       if (current.right) stack.push(current.right);
+      if (current.left) stack.push(current.left);
     }
 
     if (!callback) return inorderArray;
@@ -127,8 +126,7 @@ class Tree {
       const current = stack.pop();
       if (current.right) stack.push(current.right);
       if (current.left) stack.push(current.left);
-      if (!callback) inorderArray.push(current.data);
-      else callback(current);
+      !callback ? inorderArray.push(current.data) : callback(current);
     }
 
     if (!callback) return inorderArray;
