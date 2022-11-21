@@ -36,6 +36,8 @@ printAllTraversalMethods();
 printTitle("final results");
 bst.print();
 
+printTest("inclues 2", bst.treeIncludesDFS(2));
+
 // utility functions
 
 function printAllTraversalMethods() {

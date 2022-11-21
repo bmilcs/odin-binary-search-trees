@@ -63,11 +63,27 @@ class Tree {
   }
 
   find(value) {
-    let foundNode = null;
-    this.levelOrder((node) => {
-      if (node.data === value) foundNode = node;
-    });
-    return foundNode ? foundNode : null;
+    return this.findBFS(value);
+  }
+
+  findBFS(targetValue) {
+    const queue = [this.root];
+    while (queue.length > 0) {
+      const current = queue.shift();
+      if (current.data === targetValue) return current;
+      if (current.left) queue.push(current.left);
+      if (current.right) queue.push(current.right);
+    }
+    return null;
+  }
+
+  treeIncludesDFS(target, root = this.root) {
+    if (root === null) return false;
+    if (root.data === target) return true;
+    return (
+      this.treeIncludesDFS(target, root.left) ||
+      this.treeIncludesDFS(target, root.right)
+    );
   }
 
   // traverse tree in breadth-first (level-order)
