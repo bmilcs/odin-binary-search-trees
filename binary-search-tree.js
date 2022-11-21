@@ -83,7 +83,19 @@ class Tree {
     if (!callback) return arrayOfValues;
   }
 
-  // depth-first traversal: LDR
+  //
+  // depth-first traversal
+  //
+
+  dfsRecursive(callback, root = this.root) {
+    if (root === null) return [];
+    const leftValues = this.dfsRecursive(callback, root.left);
+    const rightValues = this.dfsRecursive(callback, root.right);
+    if (!callback) return [root.data, ...leftValues, ...rightValues];
+    callback(root);
+  }
+
+  // LDR: left, data, right (iterative)
   inorder(callback) {
     const stack = [this.root];
     let inorderArray = [];
@@ -98,7 +110,7 @@ class Tree {
     if (!callback) return inorderArray;
   }
 
-  // depth-first traversal: DLR
+  // DLR: data, left, right
   preorder(callback) {
     const stack = [this.root];
     let inorderArray = [];
@@ -113,7 +125,7 @@ class Tree {
     if (!callback) return inorderArray;
   }
 
-  // depth-first traversal: LRD
+  // LRD: left, right, data
   postorder(callback) {
     const stack = [this.root];
     let inorderArray = [];
