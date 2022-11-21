@@ -92,6 +92,7 @@ class Tree {
     let inorderArray = [];
 
     while (stack.length) {
+      callback(current);
       const current = stack.pop();
       if (current.right) stack.push(current.right);
       !callback ? inorderArray.push(current.data) : callback(current);
