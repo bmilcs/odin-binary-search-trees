@@ -1,6 +1,6 @@
 # Odin Project #15: Binary Search Trees
 
-Welcome to Bryan Miller's Recursion Project, the [fifteenth assignment](https://www.theodinproject.com/lessons/javascript-binary-search-trees) within the Odin Project curriculum. The goal of this repo is to practice the following skill sets:
+Welcome to Bryan Miller's Binary Search Trees Project, the [fifteenth assignment](https://www.theodinproject.com/lessons/javascript-binary-search-trees) within the Odin Project curriculum. The goal of this repo is to practice the following skill sets:
 
 - Vanilla JavaScript
   - Recursion & Iteration
